@@ -9,7 +9,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "node server.js",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "watch": "webpack --watch"
   },
   "author": "fedko",
   "license": "ISC",
