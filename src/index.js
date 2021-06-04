@@ -29,13 +29,6 @@ const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, premultipliedAlp
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-const needResize = canvas.width !== window.clientWidth || canvas.height !== window.clientHeight;
-if (needResize) {
-    renderer.setSize(window.innerWidth, window.innerHeight, false);
-};
-
-
-
 const rtWidth = 512;
 const rtHeight = 512;
 const renderTarget = new THREE.WebGLRenderTarget(rtWidth, rtHeight, { stencilBuffer: false, });
@@ -182,12 +175,8 @@ function animate() {
 };
 
 function onWindowResize() {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    if (needResize) {
-        renderer.setSize(window.innerWidth, window.innerHeight, false);
-    };
 
-    console.log(needResize);
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
