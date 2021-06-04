@@ -23,14 +23,12 @@ import nx from '../assets/EnvMap/nx.png';
 import ny from '../assets/EnvMap/ny.png';
 import nz from '../assets/EnvMap/nz.png';
 
-const canvas = document.createElement('canvas');
-//const canvas = document.querySelector('#canvas');
-const div = document.querySelector('div');
-div.appendChild(canvas);
+
+const canvas = document.querySelector('#canvas');
+const div = document.querySelector('#div');
 const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, premultipliedAlpha: false })
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(div.clientWidth, div.clientHeight);
-//renderer.setSize(window.innerWidth, window.innerHeight);
 
 const rtWidth = 512;
 const rtHeight = 512;
@@ -179,9 +177,7 @@ function animate() {
 
 function onWindowResize() {
     renderer.setSize(div.clientWidth, div.clientHeight);
-    // renderer.setSize(window.innerWidth, window.innerHeight);
     
-
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
 
